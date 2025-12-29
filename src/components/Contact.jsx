@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,58 +8,79 @@ const Contact = () => {
     subject: '',
     message: ''
   })
+  const [isLoading, setIsLoading] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success' or 'error'
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
+    // Clear status when user starts typing
+    if (submitStatus) setSubmitStatus(null)
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsLoading(true)
+    setSubmitStatus(null)
     
-    // Option 1: Using EmailJS (requires setup at emailjs.com)
-    // Uncomment below and add your EmailJS credentials:
-    /*
+    // EmailJS configuration
+    // You need to:
+    // 1. Sign up at https://www.emailjs.com/
+    // 2. Create an email service (Gmail, Outlook, etc.)
+    // 3. Create an email template
+    // 4. Get your Public Key, Service ID, and Template ID
+    // 5. Replace the values below with your credentials
+    
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID'
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID'
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
+    
     try {
+      // Initialize EmailJS (only needed once, but safe to call multiple times)
+      emailjs.init(publicKey)
+      
+      // Send email
       const result = await emailjs.send(
-        'YOUR_SERVICE_ID',  // Get from emailjs.com
-        'YOUR_TEMPLATE_ID', // Get from emailjs.com
+        serviceId,
+        templateId,
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_email: 'rheezon.work@gmail.com'
-        },
-        'YOUR_PUBLIC_KEY' // Get from emailjs.com
+          to_email: 'support@rheezon.in',
+          reply_to: formData.email
+        }
       )
-      alert('Message sent successfully!')
-      setFormData({ name: '', email: '', subject: '', message: '' })
+      
+      if (result.text === 'OK') {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+        // Clear success message after 5 seconds
+        setTimeout(() => setSubmitStatus(null), 5000)
+      }
     } catch (error) {
-      alert('Failed to send message. Please try again.')
+      console.error('EmailJS error:', error)
+      setSubmitStatus('error')
+      // Clear error message after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000)
+    } finally {
+      setIsLoading(false)
     }
-    */
-    
-    // Option 2: Current mailto fallback
-    const mailtoLink = `mailto:rheezon.work@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )}`
-    
-    window.location.href = mailtoLink
   }
 
   const contactItems = [
     {
       label: 'Email',
-      value: 'rheezon.work@gmail.com',
-      link: 'mailto:rheezon.work@gmail.com'
+      value: 'support@rheezon.in',
+      link: 'mailto:support@rheezon.in'
     },
     {
       label: 'Phone',
-      value: '+91 234 567 890',
-      link: 'tel:+91234567890'
+      value: 'support@rheezon.in',
+      link: ''
     },
     {
       label: 'Location',
@@ -124,10 +146,26 @@ const Contact = () => {
               required
             ></textarea>
           </div>
-          <button type="submit" className="submit-button">
-            Send Message
-            <span className="button-arrow">→</span>
+          <button 
+            type="submit" 
+            className="submit-button"
+            disabled={isLoading}
+          >
+            {isLoading ? 'Sending...' : 'Send Message'}
+            <span className="button-arrow">{isLoading ? '⏳' : '→'}</span>
           </button>
+          
+          {submitStatus === 'success' && (
+            <div className="form-message success">
+              ✓ Message sent successfully! We'll get back to you soon.
+            </div>
+          )}
+          
+          {submitStatus === 'error' && (
+            <div className="form-message error">
+              ✗ Failed to send message. Please check your EmailJS configuration or try again later.
+            </div>
+          )}
         </form>
 
         <div className="contact-info">

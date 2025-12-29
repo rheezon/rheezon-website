@@ -5,27 +5,27 @@ const Founders = () => {
     {
       name: "Vishesh Garg",
       role: "Co-Founder",
-      bio: "Serial entrepreneur with 15+ years building scalable tech companies. Previously led engineering at Fortune 500 companies. Stanford CS grad passionate about using technology to solve real-world problems.",
+      bio: "Innovative developer specializing in scalable backend and AI-driven systems, with 5+ years of experience building distributed solutions using Spring Boot, Kafka, and AWS.",
       image: "/images/team/founder1.jpg",
-      profileUrl: "https://linkedin.com/in/visheshgarg", // Replace with actual LinkedIn or profile URL
+      profileUrl: "https://www.linkedin.com/in/vishesh-garg-07580622b/", // Replace with actual LinkedIn or profile URL
       initial: "VG",
       gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
     },
     {
       name: "Nitin Dahiya",
       role: "Co-Founder",
-      bio: "Technical visionary specializing in AI and distributed systems. Former principal engineer at leading tech unicorns. MIT alumna with multiple patents in machine learning and cloud architecture.",
+      bio: "Technical specialisation in system security with 3+ years in the tech field. Passionate about building robust SaaS, leveraging OSINT and threat intelligence to architect resilient, secure platforms.",
       image: "/images/team/founder2.jpg",
-      profileUrl: "https://linkedin.com/in/nitindahiya", // Replace with actual LinkedIn or profile URL
+      profileUrl: "https://www.linkedin.com/in/nitin-dahiya-9848b3258/", // Replace with actual LinkedIn or profile URL
       initial: "ND",
       gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
     },
     {
       name: "Prashant Kumar",
       role: "Co-Founder",
-      bio: "Product strategist with a design-first philosophy. Led product teams at top SaaS companies, launching products used by millions. Carnegie Mellon grad obsessed with user experience and customer success.",
+      bio: "5 years of AI/ML experience paired with a design-first product strategy mindset. Led product teams at leading SaaS companies, delivering products used by millions.",
       image: "/images/team/founder3.jpg",
-      profileUrl: "https://linkedin.com/in/prashantkumar", // Replace with actual LinkedIn or profile URL
+      profileUrl: "https://www.linkedin.com/in/prashantyadavcode/", // Replace with actual LinkedIn or profile URL
       initial: "PK",
       gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
     }

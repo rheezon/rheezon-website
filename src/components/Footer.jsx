@@ -1,79 +1,46 @@
 import React from 'react'
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
-
-  const footerSections = [
-    {
-      title: 'Company',
-      links: [
-        { label: 'About Us', href: '#about' },
-        { label: 'Our Team', href: '#founders' },
-        { label: 'Careers', href: '#' },
-        { label: 'Contact', href: '#contact' }
-      ]
-    },
-    {
-      title: 'Products',
-      links: [
-        { label: 'Projects', href: '#projects' },
-        { label: 'Case Studies', href: '#' },
-        { label: 'Documentation', href: '#' },
-        { label: 'API', href: '#' }
-      ]
-    },
-    {
-      title: 'Resources',
-      links: [
-        { label: 'Blog', href: '#' },
-        { label: 'Newsletter', href: '#' },
-        { label: 'Support', href: '#' },
-        { label: 'Community', href: '#' }
-      ]
-    },
-    {
-      title: 'Legal',
-      links: [
-        { label: 'Privacy Policy', href: '#' },
-        { label: 'Terms of Service', href: '#' },
-        { label: 'Cookie Policy', href: '#' },
-        { label: 'GDPR', href: '#' }
-      ]
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
     }
-  ]
+  }
 
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="footer-top">
-          {footerSections.map((section, index) => (
-            <div key={index} className="footer-section">
-              <h3>{section.title}</h3>
-              <ul className="footer-links">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    <a href={link.href} onClick={(e) => {
-                      if (link.href.startsWith('#') && link.href !== '#') {
-                        e.preventDefault()
-                        const element = document.querySelector(link.href)
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' })
-                        }
-                      }
-                    }}>
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <div className="footer-bottom">
-          <p className="footer-text">
-            © {currentYear} Rheezon. All rights reserved. Built with passion and innovation.
+        <div className="footer-section footer-brand">
+          <div className="footer-logo">
+            <img src="/images/logo/logo.png" alt="Rheezon Logo" className="footer-logo-img" />
+          </div>
+          <p className="footer-tagline">
+            Transforming ideas into powerful digital experiences
           </p>
         </div>
+
+        <div className="footer-section">
+          <h4>Quick Links</h4>
+          <ul className="footer-links">
+            <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about') }}>About</a></li>
+            <li><a href="#founders" onClick={(e) => { e.preventDefault(); scrollToSection('founders') }}>Team</a></li>
+            <li><a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects') }}>Projects</a></li>
+            <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}>Contact</a></li>
+          </ul>
+        </div>
+
+        <div className="footer-section">
+          <h4>Connect</h4>
+          <ul className="footer-links">
+            <li><a href="mailto:contact@rheezon.com">contact@rheezon.com</a></li>
+            <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} Rheezon. All rights reserved.</p>
       </div>
     </footer>
   )

@@ -38,7 +38,7 @@ const Navbar = () => {
     <nav className={`navbar ${visible ? 'visible' : ''} ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <a href="#home" className="logo" onClick={(e) => { e.preventDefault(); scrollToSection('home') }}>
-          Rheezon
+          <img src="/images/logo/logo.png" alt="Rheezon Logo" className="logo-img" />
         </a>
         <ul className="nav-links">
           <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about') }}>About</a></li>
