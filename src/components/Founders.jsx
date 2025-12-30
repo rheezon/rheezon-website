@@ -14,7 +14,7 @@ const Founders = () => {
     {
       name: "Nitin Dahiya",
       role: "Co-Founder",
-      bio: "Technical specialisation in system security with 3+ years in the tech field. Passionate about building robust SaaS, leveraging OSINT and threat intelligence to architect resilient, secure platforms.",
+      bio: "Technical specialization in system security with 4+ years across diverse tech domains. Focused on building robust SaaS platforms by combining secure infrastructure design, OSINT, and threat intelligence to create resilient systems.",
       image: "/images/team/founder2.jpg",
       profileUrl: "https://www.linkedin.com/in/nitin-dahiya-9848b3258/", // Replace with actual LinkedIn or profile URL
       initial: "ND",

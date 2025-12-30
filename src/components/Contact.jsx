@@ -78,11 +78,6 @@ const Contact = () => {
       link: 'mailto:support@rheezon.in'
     },
     {
-      label: 'Phone',
-      value: 'support@rheezon.in',
-      link: ''
-    },
-    {
       label: 'Location',
       value: 'Gurugram, India',
       link: null

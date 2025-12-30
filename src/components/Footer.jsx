@@ -33,8 +33,7 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Connect</h4>
           <ul className="footer-links">
-            <li><a href="mailto:contact@rheezon.com">contact@rheezon.com</a></li>
-            <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+            <li><a href="mailto:support@rheezon.in">support@rheezon.in</a></li>
           </ul>
         </div>
       </div>

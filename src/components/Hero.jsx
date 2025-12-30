@@ -18,10 +18,6 @@ const Hero = () => {
   return (
     <section id="home" className="hero">
       <div className="hero-content">
-        <div className="hero-badge">
-          <span className="badge-icon">✨</span>
-          Welcome to the future of innovation
-        </div>
         <h1>
           Innovation starts with <span className="gradient-text">Rheezon</span>
         </h1>
@@ -33,6 +29,9 @@ const Hero = () => {
           <button className="cta-button" onClick={scrollToContact}>
             <span>Get Started</span>
             <span className="button-arrow">→</span>
+          </button>
+          <button className="cta-button cta-button-secondary" onClick={scrollToContact}>
+            <span>Contact Us</span>
           </button>
           <button className="cta-button cta-button-secondary" onClick={scrollToProjects}>
             <span>Explore Projects</span>

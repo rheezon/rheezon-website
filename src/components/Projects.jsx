@@ -27,7 +27,7 @@ const Projects = () => {
       <div className="projects-grid">
         {projects.map((project, index) => (
           <div key={index} className="project-card scroll-reveal">
-            <div className="project-image" style={{ background: project.gradient }}>
+            <div className="project-image">
               {project.image ? (
                 <img src={project.image} alt={project.title} />
               ) : (

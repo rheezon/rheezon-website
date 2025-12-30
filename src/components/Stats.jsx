@@ -6,10 +6,10 @@ const Stats = () => {
   const sectionRef = useRef(null)
 
   const stats = [
-    { label: 'Years of Excellence', value: 5, suffix: '+' },
-    { label: 'Projects Delivered', value: 150, suffix: '+' },
-    { label: 'Happy Clients', value: 80, suffix: '+' },
-    { label: 'Team Members', value: 25, suffix: '+' }
+    { label: 'Years of Excellence', value: 2, suffix: '+' },
+    { label: 'Projects Delivered', value: 10, suffix: '+' },
+    { label: 'Happy Clients', value: 10, suffix: '+' },
+    { label: 'Team Members', value: 3, suffix: '+' }
   ]
 
   useEffect(() => {

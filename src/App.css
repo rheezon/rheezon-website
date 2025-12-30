@@ -976,6 +976,16 @@
   transition: transform 0.4s ease;
 }
 
+@media (max-width: 768px) {
+  .project-image {
+    background: white;
+  }
+  
+  .project-image img {
+    object-fit: contain;
+  }
+}
+
 .project-card:hover .project-image img {
   transform: scale(1.05);
 }
@@ -1325,6 +1335,10 @@
     padding: 0 20px;
   }
 
+  .logo-img {
+    height: 50px;
+  }
+
   .nav-links {
     gap: 24px;
   }
@@ -1385,8 +1399,18 @@
     max-width: 100%;
   }
 
+  .about-tabs-wrapper::before,
+  .about-tabs-wrapper::after {
+    width: 80px;
+  }
+
   .about-tabs-carousel {
     gap: 30px;
+  }
+
+  .tab-spotlight {
+    width: 180px;
+    height: 50px;
   }
 
   .tab-button {
@@ -1515,11 +1539,11 @@
   }
 
   .logo-img {
-    height: 48px;
+    height: 32px;
   }
 
   .nav-links {
-    gap: 16px;
+    gap: 12px;
   }
 
   .section-title {

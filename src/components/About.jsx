@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 const About = () => {
   const [currentIndex, setCurrentIndex] = useState(3) // Start at first item of middle set
   const [isTransitioning, setIsTransitioning] = useState(true)
+  const [buttonWidth, setButtonWidth] = useState(240) // Desktop: 200px button + 40px gap
+  const [offset, setOffset] = useState(100) // Center offset adjustment
 
   const tabs = [
     { id: 'mission', label: 'Our Mission' },
@@ -12,6 +14,26 @@ const About = () => {
 
   // Create an extended array for infinite scroll effect
   const extendedTabs = [...tabs, ...tabs, ...tabs]
+
+  // Calculate responsive button width and offset
+  useEffect(() => {
+    const updateDimensions = () => {
+      const width = window.innerWidth
+      if (width <= 768) {
+        // Mobile: 180px button + 30px gap = 210px
+        setButtonWidth(210)
+        setOffset(90) // Adjusted for mobile button width
+      } else {
+        // Desktop: 200px button + 40px gap = 240px
+        setButtonWidth(240)
+        setOffset(100)
+      }
+    }
+
+    updateDimensions()
+    window.addEventListener('resize', updateDimensions)
+    return () => window.removeEventListener('resize', updateDimensions)
+  }, [])
 
   // Auto-rotate tabs
   useEffect(() => {
@@ -45,7 +67,7 @@ const About = () => {
     { number: '500K+', label: 'Lines of Code' },
     { number: '98%', label: 'Client Satisfaction' },
     { number: '24/7', label: 'Support Available' },
-    { number: '15+', label: 'Countries Served' }
+    { number: '2+', label: 'Countries Served' }
   ]
 
   return (
@@ -65,7 +87,7 @@ const About = () => {
         <div 
           className="about-tabs-carousel"
           style={{
-            transform: `translateX(calc(50% - ${currentIndex * 240}px - 100px))`,
+            transform: `translateX(calc(50% - ${currentIndex * buttonWidth}px - ${offset}px))`,
             transition: isTransitioning ? 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)' : 'none'
           }}
         >
