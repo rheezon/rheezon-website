@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-section footer-brand">
           <div className="footer-logo">
-            <img src="/images/logo/logo.png" alt="Rheezon Logo" className="footer-logo-img" />
+            <img src="/images/logo/logo.png" alt="Rheezon Logo" className="footer-logo-img" width="90" height="45" loading="lazy" decoding="async" />
           </div>
           <p className="footer-tagline">
             Transforming ideas into powerful digital experiences

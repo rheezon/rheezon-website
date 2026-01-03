@@ -73,9 +73,9 @@ const About = () => {
   return (
     <section id="about" className="section about">
       <div className="about-header">
-        <h2 className="section-title">About Rheezon</h2>
+        <h2 className="section-title">Our approach</h2>
         <p className="section-subtitle">
-          Transforming ideas into powerful digital experiences that drive growth and innovation
+          Strategy first, execution fast—embedding AI responsibly with measurable outcomes
         </p>
       </div>
 

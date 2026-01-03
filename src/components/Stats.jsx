@@ -2,14 +2,13 @@ import React, { useState, useEffect, useRef } from 'react'
 
 const Stats = () => {
   const [isVisible, setIsVisible] = useState(false)
-  const [counts, setCounts] = useState({ years: 0, projects: 0, clients: 0, team: 0 })
+  const [counts, setCounts] = useState([0, 0, 0])
   const sectionRef = useRef(null)
 
   const stats = [
-    { label: 'Years of Excellence', value: 2, suffix: '+' },
-    { label: 'Projects Delivered', value: 10, suffix: '+' },
-    { label: 'Happy Clients', value: 10, suffix: '+' },
-    { label: 'Team Members', value: 3, suffix: '+' }
+    { label: 'Global industry experts', value: 20, suffix: '+' },
+    { label: 'Practitioners', value: 200, suffix: '+' },
+    { label: 'Regional hubs', value: 6, suffix: '+' }
   ]
 
   useEffect(() => {
@@ -38,15 +37,22 @@ const Stats = () => {
     stats.forEach((stat, index) => {
       let current = 0
       const increment = stat.value / steps
-      const key = ['years', 'projects', 'clients', 'team'][index]
 
       const timer = setInterval(() => {
         current += increment
         if (current >= stat.value) {
-          setCounts(prev => ({ ...prev, [key]: stat.value }))
+          setCounts(prev => {
+            const next = [...prev]
+            next[index] = stat.value
+            return next
+          })
           clearInterval(timer)
         } else {
-          setCounts(prev => ({ ...prev, [key]: Math.floor(current) }))
+          setCounts(prev => {
+            const next = [...prev]
+            next[index] = Math.floor(current)
+            return next
+          })
         }
       }, interval)
     })
@@ -58,7 +64,7 @@ const Stats = () => {
         {stats.map((stat, index) => (
           <div key={index} className="stat-item">
             <span className="stat-number">
-              {Object.values(counts)[index]}{stat.suffix}
+              {counts[index]}{stat.suffix}
             </span>
             <span className="stat-label">{stat.label}</span>
           </div>
