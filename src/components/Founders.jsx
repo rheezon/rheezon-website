@@ -3,15 +3,6 @@ import React from 'react'
 const Founders = () => {
   const founders = [
     {
-      name: "Vishesh Garg",
-      role: "Co-Founder",
-      bio: "Innovative developer specializing in scalable backend and AI-driven systems, with 5+ years of experience building distributed solutions using Spring Boot, Kafka, and AWS.",
-      image: "/images/team/founder1.jpg",
-      profileUrl: "https://www.linkedin.com/in/vishesh-garg-07580622b/", // Replace with actual LinkedIn or profile URL
-      initial: "VG",
-      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-    },
-    {
       name: "Nitin Dahiya",
       role: "Co-Founder",
       bio: "Technical specialization in system security with 4+ years across diverse tech domains. Focused on building robust SaaS platforms by combining secure infrastructure design, OSINT, and threat intelligence to create resilient systems.",
@@ -28,6 +19,15 @@ const Founders = () => {
       profileUrl: "https://www.linkedin.com/in/prashantyadavcode/", // Replace with actual LinkedIn or profile URL
       initial: "PK",
       gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+    },
+    {
+      name: "Vishesh Garg",
+      role: "Co-Founder",
+      bio: "Innovative developer specializing in scalable backend and AI-driven systems, with 5+ years of experience building distributed solutions using Spring Boot, Kafka, and AWS.",
+      image: "/images/team/founder1.jpg",
+      profileUrl: "https://www.linkedin.com/in/vishesh-garg-07580622b/", // Replace with actual LinkedIn or profile URL
+      initial: "VG",
+      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
     }
   ]
 
@@ -40,7 +40,7 @@ const Founders = () => {
           <div key={index} className="founder-card scroll-reveal">
             <div className="founder-image" style={{ background: founder.gradient }}>
               {founder.image ? (
-                <img src={founder.image} alt={founder.name} />
+                <img src={founder.image} alt={founder.name} loading="lazy" decoding="async" width="180" height="180" />
               ) : (
                 founder.initial
               )}

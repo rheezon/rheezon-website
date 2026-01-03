@@ -29,7 +29,7 @@ const Projects = () => {
           <div key={index} className="project-card scroll-reveal">
             <div className="project-image">
               {project.image ? (
-                <img src={project.image} alt={project.title} />
+                <img src={project.image} alt={project.title} loading="lazy" decoding="async" width="1200" height="800" />
               ) : (
                 project.icon
               )}

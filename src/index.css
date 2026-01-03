@@ -17,6 +17,20 @@
   --transition: all 0.3s ease;
 }
 
+/* Correct CSS variables for theme (Rheezon blues) */
+:root {
+  --primary-color: #0e1a2b;
+  --secondary-color: #101826;
+  --text-color: #0e1a2b;
+  --text-secondary: #6b7280;
+  --bg-color: #ffffff;
+  --accent-color: #2d6cf3;
+  --accent-secondary: #00b4ff;
+  --section-padding: 80px 20px;
+  --max-width: 1200px;
+  --transition: all 0.3s ease;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -81,4 +95,18 @@ button {
   100% {
     background-position: 1000px 0;
   }
+}
+
+/* Ensure CSS variables are correctly defined */
+:root {
+  --primary-color: #000;
+  --secondary-color: #1d1d1f;
+  --text-color: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --bg-color: #fff;
+  --accent-color: #667eea;
+  --accent-secondary: #764ba2;
+  --section-padding: 80px 20px;
+  --max-width: 1200px;
+  --transition: all 0.3s ease;
 }
