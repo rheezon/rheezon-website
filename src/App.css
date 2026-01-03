@@ -842,18 +842,10 @@
 }
 
 .tech-track-left {
-  animation: none;
-}
-
-.tech-track-right {
-  animation: none;
-}
-
-.tech-slider:hover .tech-track-left {
   animation: scrollLeft 60s linear infinite;
 }
 
-.tech-slider:hover .tech-track-right {
+.tech-track-right {
   animation: scrollRight 60s linear infinite;
 }
 
